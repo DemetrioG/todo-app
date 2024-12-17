@@ -1,16 +1,7 @@
-import { Route, BrowserRouter as Router, Routes } from "react-router";
-import Home from "./pages/Home";
-import Details from "./pages/Details";
+import AppRouter from "./routes";
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/task/:id" element={<Details />} />
-      </Routes>
-    </Router>
-  );
+  return <AppRouter />;
 }
 
 export default App;
