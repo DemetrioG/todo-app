@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router";
 import { useSelector } from "react-redux";
 import { RootState } from "../../store/store";
 import { useCallback } from "react";
+import Button from "../../components/Button";
 
 const Details = () => {
   const { id } = useParams();
@@ -20,8 +21,8 @@ const Details = () => {
   }
 
   return (
-    <div>
-      <h2>Task Details</h2>
+    <div className="flex flex-col gap-4 align-start justify-start bg-zinc-200 p-4 rounded w-80">
+      <h2 className="text-2xl font-bold mb-4">Task Details</h2>
       <p>
         <strong>ID:</strong> {task.id}
       </p>
@@ -31,7 +32,7 @@ const Details = () => {
       <p>
         <strong>Status:</strong> {task.completed ? "Completed" : "Pending"}
       </p>
-      <button onClick={handleGoBack}>Back to List</button>
+      <Button text="Back to List" onClick={handleGoBack} />
     </div>
   );
 };

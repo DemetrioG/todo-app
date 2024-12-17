@@ -5,6 +5,7 @@ import TaskList from "../../components/Task/list";
 import Filter from "../../components/Filter";
 import { RootState } from "../../store/store";
 import { FilterEnum } from "../../features/tasks/types";
+import Button from "../../components/Button";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -49,9 +50,16 @@ const Home = () => {
   );
 
   return (
-    <div>
-      <input value={taskName} onChange={handleSetName} placeholder="New task" />
-      <button onClick={handleAddTask}>Add Task</button>
+    <div className="flex flex-col gap-6 items-center">
+      <div className="flex gap-2">
+        <input
+          value={taskName}
+          onChange={handleSetName}
+          placeholder="New task"
+          className="bg-zinc-100 p-2 rounded"
+        />
+        <Button text="Add Task" onClick={handleAddTask} />
+      </div>
       <Filter />
       <TaskList tasks={filteredTasks} />
     </div>

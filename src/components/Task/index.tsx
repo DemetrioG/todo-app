@@ -2,7 +2,6 @@ import { memo, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import { toggleTask } from "../../features/tasks/taskSlice";
 import { Task as TaskProps } from "../../features/tasks/types";
-import { taskContainerStyle } from "./styles";
 import { useNavigate } from "react-router";
 
 const Task = ({ task }: { task: TaskProps }) => {
@@ -19,11 +18,7 @@ const Task = ({ task }: { task: TaskProps }) => {
   }, [navigate, id]);
 
   return (
-    <div
-      style={{
-        ...taskContainerStyle,
-      }}
-    >
+    <div className="flex gap-2 w-80 bg-zinc-100 p-2 rounded justify-between">
       <span
         onClick={handleToggleTask}
         style={{ textDecoration: task.completed ? "line-through" : "none" }}

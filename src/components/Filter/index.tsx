@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { setFilter } from "../../features/tasks/taskSlice";
 import { useCallback } from "react";
 import { FilterEnum, FilterType } from "../../features/tasks/types";
+import Button from "../Button";
 
 const Filter = () => {
   const dispatch = useDispatch();
@@ -14,12 +15,13 @@ const Filter = () => {
   );
 
   return (
-    <div>
-      <button onClick={() => handleFilter(FilterEnum.ALL)}>All</button>
-      <button onClick={() => handleFilter(FilterEnum.COMPLETED)}>
-        Completed
-      </button>
-      <button onClick={() => handleFilter(FilterEnum.PENDING)}>Pending</button>
+    <div className="flex gap-2">
+      <Button text="All" onClick={() => handleFilter(FilterEnum.ALL)} />
+      <Button
+        text="Completed"
+        onClick={() => handleFilter(FilterEnum.COMPLETED)}
+      />
+      <Button text="Pending" onClick={() => handleFilter(FilterEnum.PENDING)} />
     </div>
   );
 };
