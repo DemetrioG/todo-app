@@ -1,11 +1,10 @@
 import { memo } from "react";
 import Task from "../Task";
 import { Task as TaskProps } from "../../features/tasks/types";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const TaskList = ({ tasks: filteredTasks }: { tasks: TaskProps[] }) => {
-  const tasks = useSelector((state: RootState) => state.tasks.tasks);
+  const tasks = useAppSelector((state) => state.tasks.tasks);
   const hasTasks = tasks.length > 0;
   const hasFilteredTasks = filteredTasks.length > 0;
 

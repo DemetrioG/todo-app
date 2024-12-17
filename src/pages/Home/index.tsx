@@ -1,16 +1,16 @@
 import { useCallback, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addTask } from "../../features/tasks/taskSlice";
 import TaskList from "../../components/Task/list";
 import Filter from "../../components/Filter";
-import { RootState } from "../../store/store";
 import { FilterEnum } from "../../features/tasks/types";
 import Button from "../../components/Button";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const Home = () => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state: RootState) => state.tasks.tasks);
-  const filter = useSelector((state: RootState) => state.tasks.filter);
+  const tasks = useAppSelector((state) => state.tasks.tasks);
+  const filter = useAppSelector((state) => state.tasks.filter);
 
   const [taskName, setTaskName] = useState("");
 

@@ -1,8 +1,7 @@
 import { useParams, useNavigate } from "react-router";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import { useCallback } from "react";
 import Button from "../../components/Button";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const Details = () => {
   const { id } = useParams();
@@ -12,7 +11,7 @@ const Details = () => {
     navigate("/");
   }, [navigate]);
 
-  const task = useSelector((state: RootState) =>
+  const task = useAppSelector((state) =>
     state.tasks.tasks.find((task) => task.id === Number(id))
   );
 

@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { FilterEnum, FilterType, Task } from "./types";
 
 const sliceName = "tasks";
@@ -21,7 +21,7 @@ const taskSlice = createSlice({
   name: sliceName,
   initialState,
   reducers: {
-    addTask(state, action) {
+    addTask(state, action: PayloadAction<Task>) {
       state.tasks.push(action.payload);
 
       // return {
@@ -29,7 +29,7 @@ const taskSlice = createSlice({
       //   tasks: [...state.tasks, action.payload],
       // };
     },
-    toggleTask(state, action) {
+    toggleTask(state, action: PayloadAction<number>) {
       const task = state.tasks.find((t) => t.id === action.payload);
 
       if (task) task.completed = !task.completed;
@@ -43,7 +43,7 @@ const taskSlice = createSlice({
       //   ),
       // };
     },
-    setFilter(state, action) {
+    setFilter(state, action: PayloadAction<FilterType>) {
       state.filter = action.payload;
 
       // return {
