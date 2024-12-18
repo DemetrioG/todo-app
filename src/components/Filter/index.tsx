@@ -14,14 +14,26 @@ const Filter = () => {
     [dispatch]
   );
 
+  const handleFilterAll = useCallback(
+    () => handleFilter(FilterEnum.ALL),
+    [handleFilter]
+  );
+
+  const handleFilterCompleted = useCallback(
+    () => handleFilter(FilterEnum.COMPLETED),
+    [handleFilter]
+  );
+
+  const handleFilterPending = useCallback(
+    () => handleFilter(FilterEnum.PENDING),
+    [handleFilter]
+  );
+
   return (
     <div className="flex gap-2">
-      <Button text="All" onClick={() => handleFilter(FilterEnum.ALL)} />
-      <Button
-        text="Completed"
-        onClick={() => handleFilter(FilterEnum.COMPLETED)}
-      />
-      <Button text="Pending" onClick={() => handleFilter(FilterEnum.PENDING)} />
+      <Button text="All" onClick={handleFilterAll} />
+      <Button text="Completed" onClick={handleFilterCompleted} />
+      <Button text="Pending" onClick={handleFilterPending} />
     </div>
   );
 };
