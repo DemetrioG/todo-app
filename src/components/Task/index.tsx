@@ -25,7 +25,9 @@ const Task = ({ task }: { task: TaskProps }) => {
       >
         {name}
       </span>
-      <span onClick={handleExpandTask}>🔎</span>
+      <span onClick={handleExpandTask} data-testid="expand-task">
+        🔎
+      </span>
     </div>
   );
 };
