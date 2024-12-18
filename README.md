@@ -17,3 +17,9 @@ React, Typescript, Redux, Redux Toolkit, React Router and TailwindCSS
 ```bash
   npm run dev
 ```
+
+# Running tests
+
+```bash
+  npm run test
+```
